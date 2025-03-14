@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cswfn7jhd3134"]
+
+[ext_resource type="Script" uid="uid://cbl6hq5oarmaw" path="res://scenes/entities/player/smoothCamera/SmoothCamera.cs" id="1_th8vt"]
+
+[node name="SmoothCamera" type="Camera3D"]
+script = ExtResource("1_th8vt")
