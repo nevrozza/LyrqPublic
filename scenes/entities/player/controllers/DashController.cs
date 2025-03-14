@@ -47,25 +47,25 @@ public class DashController(
 		}
 	}
 
-	/* Эта шняга возвращает чисто направление (Y всегда 0), без скорости.
-	 Скорость была | Оно вернёт
-			2      |     1
-		   -5      |    -1
-			0      |     0
-	 */
 	private Vector3 GetDashDirection()
 	{
-		Vector3 direction = player.Velocity.Normalized();
+		float yaw = player.Rotation.Y;
 
-		return new Vector3(
-			Mathf.Sign(direction.X),
+		Vector3 direction = (player.Velocity == Vector3.Zero) ? new Vector3(
+			Mathf.Sin(yaw),
 			0,
-			Mathf.Sign(direction.Z)
-		);
+			Mathf.Cos(yaw)
+		): player.Velocity;
+		
+		return new Vector3(
+			direction.X,
+			0,
+			direction.Z
+		).Normalized();
 	}
 
 	public bool IsDashAvailable()
 	{
-		return player.Velocity != Vector3.Zero && !IsDashing;
+		return !IsDashing;
 	}
 }
