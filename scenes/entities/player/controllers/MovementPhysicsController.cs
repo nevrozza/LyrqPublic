@@ -39,10 +39,10 @@ public partial class MovementPhysicsController(
     private void MovementInput()
     {
         _movementInput = Input.GetVector(
-            negativeX: InputBindings.Movement.Left,
-            positiveX: InputBindings.Movement.Right,
-            negativeY: InputBindings.Movement.Forward,
-            positiveY: InputBindings.Movement.Backward
+            negativeX: InputBindings.Movement.Right,
+            positiveX: InputBindings.Movement.Left,
+            negativeY: InputBindings.Movement.Backward,
+            positiveY: InputBindings.Movement.Forward
         );
         // Так и должно быть, что z [3D] = y [2D]
         player.Velocity = player.Velocity with

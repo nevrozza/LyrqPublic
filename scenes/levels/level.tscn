@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.107, 7.816)
 _positionSpeed = 7.0
 _rotationSpeed = 2.0
 _target = NodePath("../Entities/Player")
-Offset = Vector3(0, 8, 5)
+Offset = Vector3(0, 8, -5)
 
 [node name="Entities" type="Node3D" parent="."]
 

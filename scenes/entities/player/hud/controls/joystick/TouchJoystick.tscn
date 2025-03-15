@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3vpxojk6ubps"]
+
+[ext_resource type="Script" uid="uid://pfkjpsmv1r6t" path="res://scenes/entities/player/hud/controls/joystick/TouchJoystick.cs" id="1_tju7k"]
+[ext_resource type="Texture2D" uid="uid://2pxdmhml6tg5" path="res://graphics/ui/hud/controls/joystick/joystickOuterCircle.png" id="3_wo204"]
+[ext_resource type="Texture2D" uid="uid://ceohxpws4bfu" path="res://graphics/ui/hud/controls/joystick/handle.png" id="4_yc3id"]
+
+[sub_resource type="GDScript" id="GDScript_nwptc"]
+script/source = "extends Node2D
+func _draw() -> void:
+	var parent = get_parent()
+	
+	if parent != null:
+		# some calculations for ignoring stick placed pos
+		var availableZone = parent.AvailableZone
+		var joystickPos = global_position
+		var posY = get_viewport_rect().size.y - availableZone.y - joystickPos.y
+		var rect = Rect2(Vector2(-joystickPos.x, posY), Vector2(availableZone.x, availableZone.y))
+		draw_rect(rect, Color(Color.CORNFLOWER_BLUE, 0.2))
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ltog"]
+radius = 150.0
+
+[node name="TouchJoystick" type="Node2D"]
+script = ExtResource("1_tju7k")
+
+[node name="AvailableZonePreview" type="Node2D" parent="."]
+script = SubResource("GDScript_nwptc")
+
+[node name="Stick" type="Node2D" parent="."]
+position = Vector2(-152, -152)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Stick"]
+texture_normal = ExtResource("3_wo204")
+shape = SubResource("CircleShape2D_1ltog")
+shape_visible = false
+
+[node name="Handle" type="Sprite2D" parent="Stick"]
+position = Vector2(150, 150)
+texture = ExtResource("4_yc3id")
