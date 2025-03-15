@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://tlyqre7b0ysw"]
+[gd_scene load_steps=5 format=3 uid="uid://tlyqre7b0ysw"]
 
 [ext_resource type="PackedScene" uid="uid://d3vpxojk6ubps" path="res://scenes/entities/player/hud/controls/joystick/TouchJoystick.tscn" id="1_fhl6t"]
 
@@ -8,6 +8,11 @@ script/source = "extends Label
 func _process(delta: float) -> void:
 	set_text(\"FPS %d\" % Engine.get_frames_per_second())
 "
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fhl6t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d17vo"]
+radius = 0.5
 
 [node name="MobileControls" type="Control"]
 layout_mode = 3
@@ -23,8 +28,6 @@ grow_vertical = 2
 
 [node name="TouchJoystick" parent="." instance=ExtResource("1_fhl6t")]
 position = Vector2(320, 817)
-_isStatic = true
-AvailableZone = Vector2(1000, 1200)
 
 [node name="FPSCounter" type="Label" parent="."]
 layout_mode = 0
@@ -35,3 +38,10 @@ offset_bottom = 903.0
 theme_override_font_sizes/font_size = 51
 text = "FPS 60"
 script = SubResource("GDScript_fhl6t")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(1610, 733)
+scale = Vector2(106, 105)
+texture_normal = SubResource("CanvasTexture_fhl6t")
+shape = SubResource("CircleShape2D_d17vo")
+action = "dash"

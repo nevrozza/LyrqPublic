@@ -1,4 +1,5 @@
 using Godot;
+using Godot.NativeInterop;
 using Lyrq.utils.cs;
 
 namespace Lyrq.scenes.entities.player.hud.controls.joystick;
@@ -37,8 +38,8 @@ public partial class TouchJoystick : Node2D
 	{
 		if (@event is InputEventScreenTouch touch)
 		{
-			// Сетапим НАЧАЛО движения (индекс пальца, позиция стика) 
-			if (touch.IsPressed() && IsInAvailableZone(touch.Position))
+			// Сетапим НАЧАЛО движения (индекс пальца, позиция стика)  // _touchIndex == -1 - stick is inactive
+			if (touch.IsPressed() && IsInAvailableZone(touch.Position) && _touchIndex == -1)
 			{
 				Vector2 touchPos = touch.Position;
 				ActivateJoystick(touch.Index);
@@ -54,8 +55,8 @@ public partial class TouchJoystick : Node2D
 					CalculateAndMove(touchPos);
 				}
 			}
-			// Отпустили стик
-			else
+			// Отпустили стик (тем же пальцем)
+			else if (touch.IsReleased() && _touchIndex == touch.Index)
 			{
 				DeactivateJoystick();
 			}
