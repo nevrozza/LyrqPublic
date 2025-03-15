@@ -21,4 +21,7 @@ public static class Extensions
             vector.Y + toAdd
         );
     }
+    
+    // Если значение меньше minimum, возвращаем minimum, иначе возвращаем value
+    public static float CoerceAtLeast(this float value, float minimum) => value < minimum ? minimum : value;
 }
