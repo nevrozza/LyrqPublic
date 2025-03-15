@@ -13,7 +13,6 @@ public static class Extensions
         );
     }
 
-
     // Метод для добавления сразу ко всем направлениям Vector2
     public static Vector2 Plus(this Vector2 vector, float toAdd)
     {
@@ -22,8 +21,4 @@ public static class Extensions
             vector.Y + toAdd
         );
     }
-    
-    // Если значение меньше minimum, возвращаем minimum, иначе возвращаем value
-    public static float CoerceAtLeast(this float value, float minimum) => value < minimum ? minimum : value;
-    
 }

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://rhcc1vyg7mkj"]
+
+[ext_resource type="Script" uid="uid://pfkjpsmv1r6t" path="res://scenes/entities/player/hud/controls/TouchJoystick.cs" id="1_kgusc"]
+[ext_resource type="Texture2D" uid="uid://2pxdmhml6tg5" path="res://graphics/ui/hud/controls/joystick/joystickOuterCircle.png" id="2_kmlo2"]
+[ext_resource type="Script" uid="uid://bri88idgbu1ju" path="res://scenes/entities/player/hud/controls/available_zone_preview.gd" id="3_kmlo2"]
+[ext_resource type="Texture2D" uid="uid://ceohxpws4bfu" path="res://graphics/ui/hud/controls/joystick/handle.png" id="4_fsay5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fsay5"]
+radius = 150.0
+
+[node name="TouchJoystick" type="CanvasLayer"]
+script = ExtResource("1_kgusc")
+
+[node name="AvailableZonePreview" type="Node2D" parent="."]
+script = ExtResource("3_kmlo2")
+
+[node name="Stick" type="Node2D" parent="."]
+modulate = Color(0.806086, 0.891465, 1, 1)
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Stick"]
+position = Vector2(152, 696)
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("2_kmlo2")
+shape = SubResource("CircleShape2D_fsay5")
+
+[node name="Handle" type="Sprite2D" parent="Stick"]
+position = Vector2(256, 800)
+texture = ExtResource("4_fsay5")
