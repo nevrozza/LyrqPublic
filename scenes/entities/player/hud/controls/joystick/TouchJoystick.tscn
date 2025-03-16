@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3vpxojk6ubps"]
 
-[ext_resource type="Script" uid="uid://pfkjpsmv1r6t" path="res://scenes/entities/player/hud/controls/joystick/TouchJoystick.cs" id="1_tju7k"]
+[ext_resource type="Script" uid="uid://pfkjpsmv1r6t" path="res://scenes/entities/player/hud/controls/TouchJoystick.cs" id="1_tju7k"]
 [ext_resource type="Texture2D" uid="uid://2pxdmhml6tg5" path="res://graphics/ui/hud/controls/joystick/joystickOuterCircle.png" id="3_wo204"]
 [ext_resource type="Texture2D" uid="uid://ceohxpws4bfu" path="res://graphics/ui/hud/controls/joystick/handle.png" id="4_yc3id"]
 

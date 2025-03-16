@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://d3vpxojk6ubps" path="res://scenes/entities/player/hud/controls/joystick/TouchJoystick.tscn" id="1_fhl6t"]
 
 [sub_resource type="GDScript" id="GDScript_fhl6t"]
+resource_name = "FPS_counter"
 script/source = "extends Label
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	set_text(\"FPS %d\" % Engine.get_frames_per_second())
 "
 
